@@ -3,34 +3,42 @@ from src.data_integration import integrate_data
 from src.preprocessing import clean_data
 from src.eda_analysis import run_eda
 from src.pattern_tests import run_pattern_tests
+from src.clustering import run_clustering
+from src.modeling import run_modeling
 
 def main():
     print("====================================================")
     print("      DIET SUCCESS ANALYSIS & PREDICTION SYSTEM")
     print("====================================================")
 
-    # 1. Data Integration (Task 1) — endrick
+    # 1. Data Integration 
     df_merged = integrate_data()
     if df_merged is None:
         print("Integration failed. Stopping.")
         return
 
-    # 2. Preprocessing & Normalization (Task 2) — endrick
+    # 2. Preprocessing & Normalization 
     df_cleaned = clean_data()
     if df_cleaned is None:
         print("Preprocessing failed. Stopping.")
         return
 
-    # 3. Exploratory Data Analysis (Task 3) — elkin
+    # 3. Exploratory Data Analysis 
     run_eda()
 
-    # 4. Complex Pattern Identification / Hypotheses (Task 4) — elkin
+    # 4. Complex Pattern Identification / Hypotheses 
     run_pattern_tests()
 
+    # 5. Clustering 
+    run_clustering()
+
+    # 6. Prediction Modeling 
+    run_modeling()
+
     print("\n====================================================")
-    print("      TASKS 1-4 COMPLETED SUCCESSFULLY!")
+    print("      PROJECT COMPLETED SUCCESSFULLY!")
     print("====================================================")
-    print("Check the results in 'data/' and 'eda_results/'.")
+    print("Check the results in 'data/', 'eda_results/', 'clustering_results/', and 'modeling_results/'.")
 
 if __name__ == "__main__":
     main()
